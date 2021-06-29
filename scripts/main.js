@@ -33,6 +33,13 @@ function updateScores() {
     document.getElementById("highScore").textContent = `High Score: ${highScore}`;
 }
 
+function flashBanner(message) {
+    let banner = document.getElementById("banner");
+    banner.innerText = message;
+    banner.hidden = false;
+    setTimeout(() => banner.hidden = true, DELAY);
+}
+
 function checkSet(arr) { // given an array of three objects from the deck, checks if they form a set
     console.log(arr);
     return arr.length != 3 ? false : ["number", "shading", "color", "shape"].every(feature => (new Set(arr.map(card => card[feature]))).size != 2);
@@ -47,14 +54,13 @@ function handler(checkbox) { // fires when a card is clicked
             let isSet = checkSet(selectedCards);
             if (isSet) {
                 console.log("Set!");
-                document.getElementById("setBanner").hidden = false; // show banner
+                flashBanner("Set!");
                 setTimeout(() => {
                     if (gameRunning) {
                         deal(); // setup deck, cards, and images again
                         currentScore++;
                         updateScores();
                     }
-                    document.getElementById("setBanner").hidden = true; // hide banner
                 }, DELAY);
             } else {
                 console.log("Not a Set!");
@@ -66,8 +72,7 @@ function handler(checkbox) { // fires when a card is clicked
 }
 
 function start() {
-    document.getElementById("startBanner").hidden = false;
-    setTimeout(() => document.getElementById("startBanner").hidden = true, DELAY);
+    flashBanner("Start!");
     gameRunning = true;
     currentScore = 0;
     updateScores();
@@ -79,8 +84,7 @@ function start() {
         document.getElementById("timer").textContent = `Time Remaining: ${timeRemaining}s`;
         if (timeRemaining <= 0) {
             gameRunning = false;
-            document.getElementById("timeBanner").hidden = false;
-            setTimeout(() => document.getElementById("timeBanner").hidden = true, DELAY);
+            flashBanner("Time!");
             clearInterval(timeinterval);
         }
     },1000);

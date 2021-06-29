@@ -2,15 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Set Game</title>
+        <title>Set</title>
         <link href="styles/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Set Trainer</h1>
-        <div hidden id="setBanner">
-           Set! 
-        </div>
+        <h1>Set</h1>
+        <div hidden id="setBanner">Set!</div>
         <div hidden id="startBanner">
            Start! 
         </div>

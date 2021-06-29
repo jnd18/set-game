@@ -88,7 +88,7 @@ label img {
   grid-template-columns: repeat(6, 1fr);
 }
 
-#setBanner, #startBanner, #timeBanner {
+#banner {
   position: fixed;
   top: 40%;
   width: 100%;
