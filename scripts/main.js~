@@ -71,6 +71,7 @@ function start() {
     gameRunning = true;
     currentScore = 0;
     timeRemaining = 60;
+    document.getElementById("timer").textContent = `Time Remaining: ${timeRemaining}s`;
     deal();
     const timeinterval = setInterval(() => {
         timeRemaining--;

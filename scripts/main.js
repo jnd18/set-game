@@ -70,6 +70,7 @@ function start() {
     setTimeout(() => document.getElementById("startBanner").hidden = true, DELAY);
     gameRunning = true;
     currentScore = 0;
+    updateScores();
     timeRemaining = 60;
     document.getElementById("timer").textContent = `Time Remaining: ${timeRemaining}s`;
     deal();
