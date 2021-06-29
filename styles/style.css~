@@ -1,0 +1,100 @@
+html {
+    font-size: 10px;
+    font-family: "Lora", serif;
+    background-color: #DFD7DF;
+}
+h1 {
+    font-size: 60px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+}
+h2 {
+    font-size: 25px;
+    text-align: left;
+    margin: 0;
+}
+p, li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+body {
+    /*
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #CBA3CB;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+    */
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="checkbox"] {
+  display: none;
+}
+
+label {
+  /*border: 1px solid #fff;*/
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label img {
+  
+  height: 300px;
+ /* width: 100px;*/
+ 
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+  /*border-radius: 12px;*/ /* this rounds the card corners */
+}
+
+:checked+label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 10px 10px yellow;
+  z-index: -1;
+}
+
+#controlArea {
+  width: 200px;
+}
+
+#cardArea, #controlArea {
+  display: inline-block;
+}
+
+#cardList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+#setBanner, #timeBanner {
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: 150px;
+  background-color: yellow;
+}
+

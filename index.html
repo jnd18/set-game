@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Set</title>
+        <link href="styles/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Set</h1>
+        <div hidden id="setBanner">
+           Set! 
+        </div>
+        <div hidden id="startBanner">
+           Start! 
+        </div>
+        <div hidden id="timeBanner">
+           Time! 
+        </div>
+        <div id="controlArea">
+            <input type="button" id="startButton" value="Start" onclick="start()">
+            <input type="button" id="redealButton" value="Re-Deal" onclick="deal()">
+            <p id="currentScore">Current Score: 0</p>
+            <p id="highScore">High Score: 0</p>
+            <p id="timer">Time Remaining: 60s</p>
+        </div>
+        <div id="cardArea">
+            <ul id="cardList">
+                <li>
+                    <input type="checkbox" id="checkbox1" onchange="handler(this)">
+                    <label for="checkbox1">
+                        <img src="images/2H.svg" id="checkbox1_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox2" onchange="handler(this)">
+                    <label for="checkbox2">
+                        <img src="images/2S.svg" id="checkbox2_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox3" onchange="handler(this)">
+                    <label for="checkbox3">
+                        <img src="images/2H.svg" id="checkbox3_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox4" onchange="handler(this)">
+                    <label for="checkbox4">
+                        <img src="images/2S.svg" id="checkbox4_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox5" onchange="handler(this)">
+                    <label for="checkbox5">
+                        <img src="images/2H.svg" id="checkbox5_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox6" onchange="handler(this)">
+                    <label for="checkbox6">
+                        <img src="images/2S.svg" id="checkbox6_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox7" onchange="handler(this)">
+                    <label for="checkbox7">
+                        <img src="images/2H.svg" id="checkbox7_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox8" onchange="handler(this)">
+                    <label for="checkbox8">
+                        <img src="images/2S.svg" id="checkbox8_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox9" onchange="handler(this)">
+                    <label for="checkbox9">
+                        <img src="images/2H.svg" id="checkbox9_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox10" onchange="handler(this)">
+                    <label for="checkbox10">
+                        <img src="images/2S.svg" id="checkbox10_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox11" onchange="handler(this)">
+                    <label for="checkbox11">
+                        <img src="images/2H.svg" id="checkbox11_img">
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="checkbox12" onchange="handler(this)">
+                    <label for="checkbox12">
+                        <img src="images/2S.svg" id="checkbox12_img">
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript" src="scripts/main.js"></script>
+    </body>
+</html>
