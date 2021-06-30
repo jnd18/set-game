@@ -98,3 +98,8 @@ label img {
   background-color: yellow;
 }
 
+input[type="button"] {
+    width: 75px;
+    height: 50px;
+}
+

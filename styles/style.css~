@@ -88,7 +88,7 @@ label img {
   grid-template-columns: repeat(6, 1fr);
 }
 
-#setBanner, #startBanner, #timeBanner {
+#banner {
   position: fixed;
   top: 40%;
   width: 100%;
@@ -96,5 +96,10 @@ label img {
   text-align: center;
   font-size: 150px;
   background-color: yellow;
+}
+
+input[type="button"] {
+    width: 100px;
+    height: 75px;
 }
 
