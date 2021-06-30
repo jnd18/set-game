@@ -1,6 +1,8 @@
+if (!localStorage.getItem("highScore")) localStorage.setItem("highScore", 0);
+if (!localStorage.getItem("lifetimeSetCount")) localStorage.setItem("lifetimeSetCount", 0);
 let DELAY = 500; // delay in ms for some visual effects
 let gameRunning = false;
-let highScore = currentScore = 0;
+let currentScore = 0;
 let timeRemaining = 60;
 let deck, cards; // globals hehe
 function deal() { // general purpose set up function
@@ -12,7 +14,9 @@ function deal() { // general purpose set up function
     deck.forEach((_,i,a)=>{let j = Math.floor(Math.random() * (a.length - i) + i); [a[i],a[j]] = [a[j],a[i]];}); // shuffle deck
     cards = Array(12).fill(0).map((_,i)=>document.getElementById(`checkbox${i+1}`)); // get cards
     cards.forEach(card => card.cardValue = deck.pop()); // deal a value from the deck to each card
+    cards.forEach(card => card.checked=false); // deselect all cards
     updateImages();
+    updateScores();
 }
 deal();
 
@@ -28,9 +32,10 @@ function updateImages() { // updates card images to match values
 }
 
 function updateScores() {
-    highScore = currentScore > highScore ? currentScore : highScore;
+    if (parseInt(localStorage.getItem("highScore")) < currentScore) localStorage.setItem("highScore", currentScore);
     document.getElementById("currentScore").textContent = `Current Score: ${currentScore}`;
-    document.getElementById("highScore").textContent = `High Score: ${highScore}`;
+    document.getElementById("highScore").textContent = `High Score: ${localStorage.getItem("highScore")}`;
+    document.getElementById("lifetimeSetCount").textContent = `Lifetime Set Count: ${localStorage.getItem("lifetimeSetCount")}`;
 }
 
 function flashBanner(message) {
@@ -59,8 +64,9 @@ function handler(checkbox) { // fires when a card is clicked
                     if (gameRunning) {
                         deal(); // setup deck, cards, and images again
                         currentScore++;
-                        updateScores();
                     }
+                    localStorage.setItem("lifetimeSetCount", parseInt(localStorage.getItem("lifetimeSetCount")) + 1);
+                    updateScores();
                 }, DELAY);
             } else {
                 console.log("Not a Set!");
