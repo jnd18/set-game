@@ -4,7 +4,7 @@ let DELAY = 500; // delay in ms for some visual effects
 let gameRunning = false;
 let currentScore = 0;
 let timeRemaining = 60;
-let deck, cards; // globals hehe
+let deck, cards, setsAlreadyFound; // globals hehe
 function deal() { // general purpose set up function
     let numbers = [1, 2, 3];
     let shadings = ["solid", "striped", "open"]
@@ -17,6 +17,7 @@ function deal() { // general purpose set up function
     cards.forEach(card => card.checked=false); // deselect all cards
     updateImages();
     updateScores();
+    setsAlreadyFound = [];
 }
 deal();
 
@@ -56,18 +57,22 @@ function handler(checkbox) { // fires when a card is clicked
         console.log(checkbox.cardValue);
         if (cards.filter(card => card.checked).length == 3) {
             let selectedCards = cards.filter(card => card.checked).map(card => card.cardValue);
-            let isSet = checkSet(selectedCards);
-            if (isSet) {
-                console.log("Set!");
-                flashBanner("Set!");
-                setTimeout(() => {
-                    if (gameRunning) {
-                        deal(); // setup deck, cards, and images again
-                        currentScore++;
-                    }
-                    localStorage.setItem("lifetimeSetCount", parseInt(localStorage.getItem("lifetimeSetCount")) + 1);
-                    updateScores();
-                }, DELAY);
+            if (checkSet(selectedCards)) {
+                if (setsAlreadyFound.includes(JSON.stringify(selectedCards))) {
+                    flashBanner("Set Already Found!");
+                } else {
+                    flashBanner("Set!");
+                    setsAlreadyFound.push(JSON.stringify(selectedCards)); 
+                    console.log("Set!");
+                    setTimeout(() => {
+                        if (gameRunning) {
+                            deal(); // setup deck, cards, and images again
+                            currentScore++;
+                        }
+                        localStorage.setItem("lifetimeSetCount", parseInt(localStorage.getItem("lifetimeSetCount")) + 1);
+                        updateScores();
+                    }, DELAY);
+                }
             } else {
                 console.log("Not a Set!");
             }
