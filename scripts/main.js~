@@ -54,14 +54,13 @@ function handler(checkbox) { // fires when a card is clicked
             let isSet = checkSet(selectedCards);
             if (isSet) {
                 console.log("Set!");
-                document.getElementById("setBanner").hidden = false; // show banner
+                flashBanner("Set!");
                 setTimeout(() => {
                     if (gameRunning) {
                         deal(); // setup deck, cards, and images again
                         currentScore++;
                         updateScores();
                     }
-                    document.getElementById("setBanner").hidden = true; // hide banner
                 }, DELAY);
             } else {
                 console.log("Not a Set!");

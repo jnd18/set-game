@@ -12,6 +12,7 @@ function deal() { // general purpose set up function
     deck.forEach((_,i,a)=>{let j = Math.floor(Math.random() * (a.length - i) + i); [a[i],a[j]] = [a[j],a[i]];}); // shuffle deck
     cards = Array(12).fill(0).map((_,i)=>document.getElementById(`checkbox${i+1}`)); // get cards
     cards.forEach(card => card.cardValue = deck.pop()); // deal a value from the deck to each card
+    cards.forEach(card => card.checked=false); // deselect all cards
     updateImages();
 }
 deal();
